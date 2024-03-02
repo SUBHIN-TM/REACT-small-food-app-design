@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 const resto = [
   {
     info: {
+      id: "7388274",
       name: "NOORIYA RESTAURANT",
       cloudinaryImageId: "2a710d9ce78a4842a4591476401ec804",
       locality: "Mattancherry",
@@ -13,6 +14,7 @@ const resto = [
 
   {
     info: {
+      id: "738827",
       name: "soubida RESTAURANT",
       cloudinaryImageId: "2a710d9ce78a4842a4591476401ec804",
       locality: "Kochi",
@@ -22,6 +24,7 @@ const resto = [
 
   {
     info: {
+      id: "738828",
       name: "Babus RESTAURANT",
       cloudinaryImageId: "2a710d9ce78a4842a4591476401ec804",
       locality: "Kannur",
@@ -58,7 +61,7 @@ const color = {
 const CardContainers = (prop) => {
    const {restoDatas}=prop;
    const{name,cloudinaryImageId,locality} = restoDatas.info
-   console.log(prop)
+   console.log(restoDatas)
   return (
    
     <div className="cardBox" style={color}>
@@ -73,7 +76,7 @@ const BodyContainer = () => {
   return (
     <div className="BodyContainer"> 
       {resto.map((restoData) => (
-          <CardContainers  restoDatas={restoData} />
+          <CardContainers key={restoData.info.id} restoDatas={restoData} />
         ))}
     </div>
   );
