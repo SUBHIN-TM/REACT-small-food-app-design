@@ -14,7 +14,7 @@ const resto = [
     {
       info: {
         id: "738827",
-        name: "soubida RESTAURANT",
+        name: "SOUDI RESTAURANT",
         cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
         locality: "Kochi",
         areaName: " Kochi",
@@ -25,7 +25,7 @@ const resto = [
     {
       info: {
         id: "738828",
-        name: "Babus RESTAURANT",
+        name: "BABUS FAST FOOD",
         cloudinaryImageId: "86f52324ecee5fc94cbf63c4a568b672",
         locality: "Kannur",
         areaName: "Fort Kochi",
@@ -35,7 +35,7 @@ const resto = [
     {
         info: {
           id: "738528",
-          name: "lavanya RESTAURANT",
+          name: "LAVANYA FOOD CENTER",
           cloudinaryImageId: "86f52324ecee5fc94cbf63c4a568b672",
           locality: "malappuram",
           areaName: "parapanagady",
@@ -45,7 +45,7 @@ const resto = [
       {
         info: {
           id: "718828",
-          name: "tasty RESTAURANT",
+          name: "TASTY CATERINGS",
           cloudinaryImageId: "86f52324ecee5fc94cbf63c4a568b672",
           locality: "kasargod",
           areaName: "azchavattam",
