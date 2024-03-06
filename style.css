@@ -18,10 +18,15 @@
     display: flex;
     border: solid 1px rgb(11, 11, 11);
 }
+.navContainer{
+    display: flex;
+    align-items: center;
+}
+
 .navContainer > ul{
     display: flex;
     list-style-type: none;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     margin-left: 600px;
 }
 
@@ -34,15 +39,18 @@
 .cardBox{
     padding-left: 20px;
     border: 1px solid black;
-    width: 200px;
+    width: 250px;
+    overflow: hidden;
+    background-color: rgb(164, 153, 153);
 }
 
 .cardBox > img{
-    width: 100px;
+    width: 150px;
+    height: 100px;
 }
 
  .filter-button{
-   margin-top: 20px;
+   /* margin-top: 20px; */
  }
 
  .cardLook{
@@ -51,4 +59,33 @@
 padding:40px;
 display: flex;
 flex-wrap: wrap;
+ }
+
+.shimmer-container{
+    display: flex;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 50px;
+
+}
+
+ .shimmer-card{
+    margin-left: 20px;
+    width: 250px;
+    height: 250px;
+    background-color: grey;
+ }
+
+ .LOGIN{
+    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height:30px;
+    width: auto;
+    margin-left: 20px;
+ }
+
+ .upper-body{
+    display: flex;
+    padding: 20px;
+    column-gap: 50px;
  }

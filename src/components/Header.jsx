@@ -1,5 +1,8 @@
 import LOGO from "../utils/constants"
+import { useState } from "react";
+
 const HeaderContainer = () => {
+  const [logStatus,setlogStatus] = useState("Login")
     return (
       <div className="headerContainer">
         <div className="logo">
@@ -16,6 +19,7 @@ const HeaderContainer = () => {
             <li>ABOUT</li>
             <li>CONTACT</li>
           </ul>
+          <button className="LOGIN" onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button>
         </div>
       </div>
     );
