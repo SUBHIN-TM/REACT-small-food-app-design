@@ -7,6 +7,7 @@ const HeaderContainer = () => {
             className="logoImg"
             src={LOGO}
           ></img>
+          <p className="NAME">Star Food</p>
         </div>
         <div className="navContainer">
           <ul className="lists">
