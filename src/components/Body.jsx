@@ -1,13 +1,12 @@
 import CardContainers from "../components/CardContainers";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer"; //FAKE CARDS FOR REPLACING LOADING
+import { Link } from "react-router-dom";
 
 
 
 
-  
-  
-  
+
 const BodyContainer = () => {
     const [listOfRestaurants,setListOfRestaurant] = useState([]); //IT WILL COME UP THE FETCHED ENTIRE DATA
     const [searchText,setSearchText] =useState("")  //WHILE SEARCH THE SEARCH TEXT WILL MODIFIY IN THIS
@@ -55,7 +54,7 @@ const BodyContainer = () => {
       </div>
       <div className="cardLook">
       {searchTextFilteredDatabase.map((restoData) => ( //ALWAYS FILTERED DATA BASE DATA WILL BE RENDERED MAIN DATA BASE WILL NOT BE REPLACED BY  SEACH ,AND NEED TO TAKE ALL OPERTION IN MAIN DATABSE WIHHOUT EXCLUDE SINGLE DATA
-            <CardContainers key={restoData.info.id} restoDatas={restoData} />
+           <Link  key={restoData.info.id} to={"/restaurant/"+restoData.info.id}><CardContainers restoDatas={restoData} /></Link> 
           ))}
       </div>
       </div>

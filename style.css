@@ -89,3 +89,8 @@ flex-wrap: wrap;
     padding: 20px;
     column-gap: 50px;
  }
+
+ a{
+    text-decoration: none;
+    pointer-events: none;
+ }

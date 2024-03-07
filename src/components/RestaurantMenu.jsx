@@ -1,43 +1,51 @@
-import { useEffect,useState } from "react"
-import Shimmer from "./Shimmer"
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
+import { useParams } from "react-router-dom";
+import {RestuantCardsURL} from "../utils/constants"
 
-const RestaurantMenu =()=>{
-    const [restoDetalis,setRestoDetails] =useState([])
+const RestaurantMenu = () => {
+  const [restoDetalis, setRestoDetails] = useState([]);
+  const{resId} =useParams()
+  console.log("rest id is",resId);
 
-    useEffect(() =>{
-    fetchMenu()
-    },[])
+  useEffect(() => {
+    fetchMenu();
+  }, []);
 
- const fetchMenu =async ()=>{
+  const fetchMenu = async () => {
     try {
-        const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.24792&lng=75.833154&restaurantId=85661&catalog_qa=undefined&submitAction=ENTER");
-        const json=await data.json()
-         console.log(json.data);
-        setRestoDetails(json.data)
+      const data = await fetch(RestuantCardsURL+resId );
+      const json = await data.json();
+      console.log(json.data);
+      setRestoDetails(json.data);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
- };
+  };
 
-  if(restoDetalis.length == 0){
-    return( <Shimmer/>)
+  if (restoDetalis.length == 0) {
+    return <Shimmer />;
   }
 
- console.log("resto data",restoDetalis);
+  console.log("resto data", restoDetalis);
+  const { itemCards } =
+    restoDetalis?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+      ?.card;
+  console.log(itemCards)
+  return (
+    <div>
+      <h1>{restoDetalis?.cards[0]?.card?.card?.info?.name}</h1>
+      <p>{restoDetalis?.cards[0]?.card?.card?.info?.city}</p>
+      <h4>Menu</h4>
+      <ul>
+        {itemCards.map((resto) => (
+          <li key={resto.card.info.id}>{resto.card.info.name}</li>
+         
 
- return  (    
-       <div>
-            <h1>{restoDetalis?.cards[0]?.card?.card?.info?.name}</h1>
-             <p></p>
-            <h4>Menu</h4>
-            <ul>
-                <li>Biriyani</li>
-                <li>Meal</li>
-                <li>Burgers</li>
-                <li>Pizza</li>
-            </ul>
-        </div>
-    )
-}
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default RestaurantMenu
+export default RestaurantMenu;

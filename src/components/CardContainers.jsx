@@ -11,7 +11,7 @@ const CardContainers = (prop) => {
        <p>Locallity : {locality}</p>
        <p>Area : {areaName}</p>
        <p>Rating : {avgRating}</p>
-       <p>Food Items  : {cuisines.map((data) => data).join(", ")}</p>
+       {/* <p>Food Items  : {cuisines.map((data) => data).join(", ")}</p> */}
 
 
 
