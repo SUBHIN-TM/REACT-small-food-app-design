@@ -90,7 +90,3 @@ flex-wrap: wrap;
     column-gap: 50px;
  }
 
- a{
-    text-decoration: none;
-    pointer-events: none;
- }
