@@ -1,5 +1,6 @@
 import LOGO from "../utils/constants"
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = () => {
   const [logStatus,setlogStatus] = useState("Login")
@@ -14,10 +15,16 @@ const HeaderContainer = () => {
         </div>
         <div className="navContainer">
           <ul className="lists">
-            <li>HOME</li>
+            <li>
+            <Link to="/">HOME</Link>    
+              </li>
             <li>PRODUCTS</li>
-            <li>ABOUT</li>
-            <li>CONTACT</li>
+            <li> 
+              <Link to="/about">ABOUT</Link>    
+              </li>
+            <li>
+            <Link to="/contact">CONTACT</Link>    
+            </li>
           </ul>
           <button className="LOGIN" onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button>
         </div>
