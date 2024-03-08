@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities; 
 
-.navContainer ul > li {
+/* .navContainer ul > li {
 font-family: Verdana, Geneva, Tahoma, sans-serif
-}
+} */

@@ -13,25 +13,25 @@ const HeaderContainer = () => {
             className="w-20"
             src={LOGO}
           ></img>
-          <p className="NAME font-semibold">Star Food</p>
+          <p className="NAME font-bold ">Star Food</p>
         </div>
         <div className="navContainer">
           <ul className="flex justify-between mr-4 px-3 items-center">
           <li className="mr-6">
            Status {status ? "🟢" : "🔴"}  
               </li>
-            <li className="mr-4">
-            <Link to="/">HOME</Link>    
+            <li className="mr-4 text-sm">
+            <Link to="/">Home</Link>    
               </li>
-            <li className="mr-4">PRODUCTS</li>
-            <li className="mr-4"> 
-              <Link to="/about">ABOUT</Link>    
+            <li className="mr-4 text-sm">Products</li>
+            <li className="mr-4 text-sm"> 
+              <Link to="/about">About</Link>    
               </li>
-            <li className="mr-6">
-            <Link to="/contact">CONTACT</Link>    
+            <li className="mr-6 text-sm">
+            <Link to="/contact">Contact</Link>    
             </li>
-            <li className="mr-3">
-            <span className="mr-3"> <button className="bg-blue-200 hover:bg-blue-700 text-black font-bold p-1 px-4 rounded " onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button></span>
+            <li className="mr-3 text-sm">
+            <span className="mr-3"> <button className="text-sm bg-blue-200 hover:bg-blue-700 text-black font-bold p-1 px-4 rounded " onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button></span>
             </li>
           </ul>
        
