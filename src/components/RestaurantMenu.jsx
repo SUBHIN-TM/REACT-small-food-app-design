@@ -1,27 +1,13 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import {RestuantCardsURL} from "../utils/constants"
+import useRestaurantMenu from "../utils/useRestaurantMenu" //CUSTO HOOK
 
 const RestaurantMenu = () => {
-  const [restoDetalis, setRestoDetails] = useState([]);
-  const{resId} =useParams()
+
+  const{resId} =useParams() //EXTRACTED PARM TO GET RESTORNT ID BY PARM HOOK
   console.log("rest id is",resId);
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    try {
-      const data = await fetch(RestuantCardsURL+resId );
-      const json = await data.json();
-      console.log(json.data);
-      setRestoDetails(json.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const restoDetalis=useRestaurantMenu(resId)  //CREATED A CUTOMIZE HOOK TO RETURN RESTO DETAILS FOR THE CURRNT PARAM ID
+  console.log("RESTUARNT DETAILS THAT RETURN FROM CUSTOM HOOK",restoDetalis);
 
   if (restoDetalis.length == 0) {
     return <Shimmer />;
