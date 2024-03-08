@@ -5,17 +5,13 @@ const CardContainers = (prop) => {
     // console.log(restoDatas.info)
    return (
     
-     <div className="cardBox" >
-       <h4>{name}</h4>
-       <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
-       <p>Locallity : {locality}</p>
+     <div className="cardBox border my-4 mx-7 p-5 h-[400px]" >
+       <h4 className="mb-4">{name}</h4>
+       <img className="w-[200px]" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
+       <p className="mt-4">Locallity : {locality}</p>
        <p>Area : {areaName}</p>
        <p>Rating : {avgRating}</p>
        {/* <p>Food Items  : {cuisines.map((data) => data).join(", ")}</p> */}
-
-
-
-       
      </div>
    );
  };

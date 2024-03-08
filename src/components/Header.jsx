@@ -7,31 +7,34 @@ const HeaderContainer = () => {
   const [logStatus,setlogStatus] = useState("Login")
   const status=useOnlineStatus();
     return (
-      <div className="headerContainer">
-        <div className="logo">
+      <div className="flex  justify-between	items-center mx-2 border-y-2">
+        <div className="flex items-center	">
           <img
-            className="logoImg"
+            className="w-20"
             src={LOGO}
           ></img>
-          <p className="NAME">Star Food</p>
+          <p className="NAME font-semibold">Star Food</p>
         </div>
         <div className="navContainer">
-          <ul className="lists">
-          <li>
-           Online Stats : {status ? "🟢" : "🔴"}  
+          <ul className="flex justify-between mr-4 px-3 items-center">
+          <li className="mr-6">
+           Status {status ? "🟢" : "🔴"}  
               </li>
-            <li>
+            <li className="mr-4">
             <Link to="/">HOME</Link>    
               </li>
-            <li>PRODUCTS</li>
-            <li> 
+            <li className="mr-4">PRODUCTS</li>
+            <li className="mr-4"> 
               <Link to="/about">ABOUT</Link>    
               </li>
-            <li>
+            <li className="mr-6">
             <Link to="/contact">CONTACT</Link>    
             </li>
+            <li className="mr-3">
+            <span className="mr-3"> <button className="bg-blue-200 hover:bg-blue-700 text-black font-bold p-1 px-4 rounded " onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button></span>
+            </li>
           </ul>
-          <button className="LOGIN" onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button>
+       
         </div>
       </div>
     );
