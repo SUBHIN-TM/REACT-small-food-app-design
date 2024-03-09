@@ -77,7 +77,7 @@ const BodyContainer = () => {
         </div>
       </div>
     
-      <div className="flex p-[5px] flex-wrap">
+      <div className="grid grid-cols-1 p-[5px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5" >
         {searchTextFilteredDatabase.map(
           (
             restoData //ALWAYS FILTERED DATA BASE DATA WILL BE RENDERED MAIN DATA BASE WILL NOT BE REPLACED BY  SEACH ,AND NEED TO TAKE ALL OPERTION IN MAIN DATABSE WIHHOUT EXCLUDE SINGLE DATA
