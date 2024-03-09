@@ -1,10 +1,9 @@
 import { useState } from "react";
 import RestoCatList from "./RestoCatList";
-const RestoCategoryMenu =({catInnerData})=>{
-const [showList,setShowList] =useState(false)
+const RestoCategoryMenu =({catInnerData,showList,setShowIndex})=>{
 
     const toggle =()=>{
-    showList? setShowList(false):setShowList(true)
+       setShowIndex()
     }
 return (
     <div>
