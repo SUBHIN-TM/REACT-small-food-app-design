@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu" //CUSTO HOOK
+import RestoCategoryMenu from "./RestoCategoryMenu";
 
 const RestaurantMenu = () => {
 
@@ -14,25 +15,20 @@ const RestaurantMenu = () => {
   }
 
   console.log("resto data", restoDetalis);
-  const { itemCards } =
-    restoDetalis?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
   console.log( restoDetalis?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
   
   const category=restoDetalis?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((data) => data.card?.card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
   console.log(category);
   return (
-    <div>
-      <h1>{restoDetalis?.cards[0]?.card?.card?.info?.name}</h1>
-      <p>{restoDetalis?.cards[0]?.card?.card?.info?.city}</p>
-      <h4>Menu</h4>
-      <ul>
-        {itemCards.map((resto) => (
-          <li key={resto.card.info.id}>{resto.card.info.name}</li>
-         
-
-        ))}
-      </ul>
+    <div className="text-center ">
+      <h1 className="font-bold text-xl my-1 mt-3">{restoDetalis?.cards[0]?.card?.card?.info?.name}</h1>
+      <p className="mb-5">{restoDetalis?.cards[0]?.card?.card?.info?.city}</p>
+      {category.map((data) =>{
+        return(
+          <RestoCategoryMenu key={data?.card?.card?.title}  catInnerData={data?.card?.card}/>
+        )
+      })}
+   
     </div>
   );
 };
