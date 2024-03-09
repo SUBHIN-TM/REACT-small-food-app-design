@@ -10,6 +10,9 @@ const HeaderContainer = () => {
   const status=useOnlineStatus();
   const {loggedInUser}=useContext(userContext)
   console.log(loggedInUser);
+  //if want to update global
+  const{setContextUpdate}=useContext(userContext)
+  setContextUpdate("Guest") //AGAIN CHANGED THE VARIABLE,,THIS SET ADDED FROM APP.JS
   
     return (
       <div className="flex  justify-between	items-center mx-2 border-y-2">
@@ -38,7 +41,7 @@ const HeaderContainer = () => {
             <li className="mr-3 text-sm">
             <span className="mr-3"> <button className="text-sm bg-blue-200 hover:bg-blue-700 text-black font-bold p-1 px-4 rounded " onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button></span>
             </li>
-            <li>{logStatus == "Login"?loggedInUser:"" }</li>
+            <li>{logStatus !== "Login"?loggedInUser:"" }</li>
           </ul>
        
         </div>
