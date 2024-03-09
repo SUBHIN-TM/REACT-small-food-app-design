@@ -1,11 +1,16 @@
 import {LOGO} from "../utils/constants"
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
+
 
 const HeaderContainer = () => {
   const [logStatus,setlogStatus] = useState("Login")
   const status=useOnlineStatus();
+  const {loggedInUser}=useContext(userContext)
+  console.log(loggedInUser);
+  
     return (
       <div className="flex  justify-between	items-center mx-2 border-y-2">
         <div className="flex items-center	">
@@ -33,6 +38,7 @@ const HeaderContainer = () => {
             <li className="mr-3 text-sm">
             <span className="mr-3"> <button className="text-sm bg-blue-200 hover:bg-blue-700 text-black font-bold p-1 px-4 rounded " onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button></span>
             </li>
+            <li>{logStatus == "Login"?loggedInUser:"" }</li>
           </ul>
        
         </div>
