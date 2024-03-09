@@ -1,4 +1,4 @@
-import CardContainers from "../components/CardContainers";
+import CardContainers,{TopRatedCardContainers} from "../components/CardContainers";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"; //FAKE CARDS FOR REPLACING LOADING
 import { Link } from "react-router-dom";
@@ -10,6 +10,9 @@ const BodyContainer = () => {
     []
   ); //MAKE ANOTHER COPY TO STORE INITILAY THE WHOLE SAME DATA OF RESTURNT,LATER THIS WILL FILLED WITH SEARCHRD TEXT MATACHED DATAS
   //DONT INTERFERE THE MAIN RESTO DATAS BCZ,WHILE SEARAH CHNGING THE MAIN DATA TO RENDRE IS A BAD IDEA.INSTEDAD WE HAVE TO SEARCH THE ELEMTN IN FROM THE MAIN DATAS OTHER WISE IT CANT GET FROM SECOND SEARCH
+  
+  const NewTopRatedContainers=TopRatedCardContainers(CardContainers) //HIGHER ORDER COMPONENT ,THE ARGUMENT IS CARDCONTAINER COMPONENT ,
+
   useEffect(() => {
     //*WHENEVER THE THIS COMPONENTS RENDERED THE USEEFFECT WILL WORK AND FETCH CALLED
     fetchData();
@@ -39,6 +42,8 @@ const BodyContainer = () => {
   if (listOfRestaurants.length == 0) {
     return <Shimmer />; //CALLED SHIMMER TO RENDRE FAKE CARDS
   }
+
+  console.log("resto",listOfRestaurants);
   return (
     <div className="BodyContainer mt-3">
       <div className="flex ml-6 mb-7">
@@ -78,15 +83,11 @@ const BodyContainer = () => {
       </div>
     
       <div className="grid grid-cols-1 p-[5px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5" >
-        {searchTextFilteredDatabase.map(
-          (
-            restoData //ALWAYS FILTERED DATA BASE DATA WILL BE RENDERED MAIN DATA BASE WILL NOT BE REPLACED BY  SEACH ,AND NEED TO TAKE ALL OPERTION IN MAIN DATABSE WIHHOUT EXCLUDE SINGLE DATA
+        {searchTextFilteredDatabase.map((restoData //ALWAYS FILTERED DATA BASE DATA WILL BE RENDERED MAIN DATA BASE WILL NOT BE REPLACED BY  SEACH ,AND NEED TO TAKE ALL OPERTION IN MAIN DATABSE WIHHOUT EXCLUDE SINGLE DATA
           ) => (
-            <Link
-              key={restoData.info.id}
-              to={"/restaurant/" + restoData.info.id}
-            >
-              <CardContainers restoDatas={restoData} />
+            <Link key={restoData.info.id}to={"/restaurant/" + restoData.info.id}>
+              {restoData.info.avgRating >= 4.4 ?(<NewTopRatedContainers restoDatas={restoData}/>) :( <CardContainers restoDatas={restoData} />)}
+             
             </Link>
           )
         )}
