@@ -43,7 +43,7 @@ const BodyContainer = () => {
     return <Shimmer />; //CALLED SHIMMER TO RENDRE FAKE CARDS
   }
 
-  console.log("resto",listOfRestaurants);
+  // console.log("resto",listOfRestaurants);
   return (
     <div className="BodyContainer mt-3">
       <div className="flex ml-6 mb-7">
@@ -53,7 +53,7 @@ const BodyContainer = () => {
             let filtered = listOfRestaurants.filter(
               (data) => data.info.avgRating >= 4.4
             );
-            console.log("filtered", filtered);
+            // console.log("filtered", filtered);
             setsearchTextFilteredDatabase(filtered); //AVG RATING DATAS ONLY REPLED BY THE MAIN DATA
           }}
         >
@@ -73,7 +73,7 @@ const BodyContainer = () => {
                   .toLowerCase()
                   .includes(searchText.toLocaleLowerCase())
               ); //DATA WILL BE FINDED WRT THE SEARCH TEXT
-              console.log(filterText);
+              // console.log(filterText);
               setsearchTextFilteredDatabase(filterText); //PUT THE DDATA AND REPLCED THE DATABSE OF FILTERD
             }}
           >

@@ -3,9 +3,9 @@ import { useState,useEffect } from "react";
 
 const useRestaurantMenu =(resId)=>{
     const [restoDetalis,setRestoDetails] =useState([])
-    console.log("hook function reached");
+    // console.log("hook function reached");
   useEffect(() => {
-    console.log("use effect called");
+    // console.log("use effect called");
     fetchMenu();
   }, []);
 
@@ -13,7 +13,7 @@ const useRestaurantMenu =(resId)=>{
     try {
       const data = await fetch(RestuantCardsURL+resId );
       const json = await data.json();
-      console.log("fetched json data",json.data);
+      // console.log("fetched json data",json.data);
       setRestoDetails(json.data);
     } catch (error) {
       console.error(error);

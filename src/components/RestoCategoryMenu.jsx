@@ -7,7 +7,7 @@ const RestoCategoryMenu =({catInnerData,showList,setShowIndex})=>{
     }
 return (
     <div>
-        {console.log(catInnerData)}
+        {/* {console.log(catInnerData)} */}
         <div className=" bg-gray-50 w-6/12 mx-auto shadow-lg my-1 p-4">
             <div  onClick={toggle} className=" cursor-pointer flex justify-between">
               <span className="font-bold ">{catInnerData?.title} ({catInnerData.itemCards.length})</span>
