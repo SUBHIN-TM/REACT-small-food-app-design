@@ -13,7 +13,7 @@ const HeaderContainer = () => {
   // console.log(loggedInUser);
   //if want to update global
   const{setContextUpdate}=useContext(userContext)
-   setContextUpdate("Guest") //AGAIN CHANGED THE VARIABLE,,THIS SET ADDED FROM APP.JS
+  //  setContextUpdate("Guest") //AGAIN CHANGED THE VARIABLE,,THIS SET ADDED FROM APP.JS
   
   const cartRedux=useSelector((store) => store.cart.items) //give access to redux store
   console.log(cartRedux);
@@ -29,18 +29,18 @@ const HeaderContainer = () => {
         </div>
         <div className="navContainer">
           <ul className="flex justify-between mr-4 px-3 items-center">
-          <li className="mr-6">
+          <li className="mr-6 hidden sm:block">
            Status {status ? "🟢" : "🔴"}  
               </li>
             <li className="mr-4 text-sm">
             <Link to="/">Home</Link>    
               </li>
-            <li className="mr-4 text-sm"> 
+            {/* <li className="mr-4 text-sm"> 
               <Link to="/about">About</Link>    
-              </li>
-            <li className="mr-6 text-sm">
+              </li> */}
+            {/* <li className="mr-6 text-sm">
             <Link to="/contact">Contact</Link>    
-            </li>
+            </li> */}
             <li  className="mr-4 text-sm"><Link to="/cart">Cart <b>({cartRedux.length} Items)</b></Link></li>
             <li className="mr-3 text-sm">
             <span className="mr-3"> <button className="text-sm bg-blue-200 hover:bg-blue-700 text-black font-bold p-1 px-4 rounded " onClick={()=> logStatus == 'Login' ? setlogStatus("Logout"):setlogStatus("Login")}>{logStatus}</button></span>
